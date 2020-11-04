@@ -4,6 +4,9 @@
 This is based of the [TALL Stack](https://github.com/laravel-frontend-presets/tall) example. I just replaced [Alpine.js](https://github.com/alpinejs/alpine) and 
 [Tailwind CSS](https://tailwindcss.com/) with [Bootstrap 5](https://v5.getbootstrap.com/).
 
+## Screenshots
+![login](https://i.imgur.com/APsKWlU.jpg)
+
 ## Installation
 ```
 composer require haq/laravelui-livewire
