@@ -25,8 +25,8 @@ class LaravelUIPreset extends Preset
     {
         return array_merge(
             [
-                'bootstrap' => '@next',
-                'popper.js' => '@lts',
+                'bootstrap' => '^5.0.0-alpha2',
+                'popper.js' => '^1.16.1-lts',
                 'sass' => '^1.15.2',
                 'sass-loader' => '^8.0.0',
             ],
