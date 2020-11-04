@@ -1,6 +1,13 @@
 {
     "name": "haq/laravelui-livewire",
     "description": "LaravelUI but using Livewire",
+    "keywords": [
+        "laravel",
+        "livewire",
+        "preset",
+        "laravelui",
+        "bootstrap"
+    ],
     "license": "MIT",
     "authors": [
         {
