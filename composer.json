@@ -1,0 +1,30 @@
+{
+    "name": "haq/laravelui-livewire",
+    "description": "LaravelUI but using Livewire",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Affan Haq",
+            "email": "affan.haq@outlook.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "laravel/ui": "^3.0",
+        "illuminate/support": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Haq\\LaravelUI\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Haq\\LaravelUI\\LaravelUIServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
