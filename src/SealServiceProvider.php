@@ -2,7 +2,6 @@
 
 namespace Haq\Seal;
 
-use Haq\Seal\Console\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 
 class SealServiceProvider extends ServiceProvider
@@ -14,7 +13,7 @@ class SealServiceProvider extends ServiceProvider
         }
 
         $this->commands([
-            InstallCommand::class
+            Console\InstallCommand::class
         ]);
 
         //Paginator::useBootstrap();
