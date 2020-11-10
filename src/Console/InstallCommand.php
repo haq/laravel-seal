@@ -36,7 +36,7 @@ class InstallCommand extends Command
         $fs->delete(base_path('package-lock.json'));
         $fs->deleteDirectory(resource_path('sass'));
 
-        $fs->copyDirectory(__DIR__ . '/../stubs', base_path());
+        $fs->copyDirectory(__DIR__ . '/../../stubs', base_path());
 
         static::updateFile(base_path('app/Http/Middleware/RedirectIfAuthenticated.php'), function ($file) {
             return str_replace("RouteServiceProvider::HOME", "route('home')", $file);
