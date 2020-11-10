@@ -1,6 +1,6 @@
 {
     "name": "haq/seal",
-    "description": "Laravel authentication using Blade, Boostrap and Livewire.",
+    "description": "Basic authentication scaffolding using Blade, Boostrap and Livewire.",
     "keywords": [
         "laravel",
         "livewire",
