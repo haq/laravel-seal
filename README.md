@@ -1,17 +1,16 @@
 <p align="center">
-<img src="https://banners.beyondco.de/LaravelUI%20Livewire.png?theme=dark&packageName=haq%2Flaravelui-livewire&pattern=architect&style=style_1&description=LaravelUI+using+Livewire&md=1&fontSize=125px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" width="400">
+<img src="https://banners.beyondco.de/Laravel%20Seal.png?theme=dark&packageName=haq%2Fseal&pattern=ticTacToe&style=style_1&description=This+is+why+it%27s+awesome&md=1&showWatermark=0&fontSize=200px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" width="400">
 </p>
 
-# laravel ui livewire
-This is based of the [TALL Stack](https://github.com/laravel-frontend-presets/tall) example. I just replaced [Alpine.js](https://github.com/alpinejs/alpine) and 
-[Tailwind CSS](https://tailwindcss.com/) with [Bootstrap 5](https://v5.getbootstrap.com/).
+# laravel seal
+Basic authentication scaffolding using Blade, [Bootstrap 5](https://v5.getbootstrap.com/) and [Livewire](https://laravel-livewire.com/).
 
 ## Screenshot
 ![login](https://i.imgur.com/APsKWlU.jpg)
 
 ## Installation
 ```
-composer require haq/laravelui-livewire
-php artisan ui livewire
+composer require haq/seal --dev
+php artisan seal:install
 npm install && npm run dev
 ```

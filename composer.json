@@ -1,12 +1,11 @@
 {
-    "name": "haq/laravelui-livewire",
-    "description": "LaravelUI but using Livewire",
+    "name": "haq/seal",
+    "description": "Basic authentication scaffolding using Blade, Boostrap and Livewire.",
     "keywords": [
         "laravel",
         "livewire",
-        "preset",
-        "laravelui",
-        "bootstrap"
+        "bootstrap",
+        "auth"
     ],
     "license": "MIT",
     "authors": [
@@ -17,19 +16,19 @@
     ],
     "require": {
         "php": "^7.3",
-        "laravel/ui": "^3.0",
+        "illuminate/filesystem": "^8.0",
         "illuminate/support": "^8.0",
         "livewire/livewire": "^2.3"
     },
     "autoload": {
         "psr-4": {
-            "Haq\\LaravelUI\\": "src/"
+            "Haq\\Seal\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Haq\\LaravelUI\\LaravelUIServiceProvider"
+                "Haq\\Seal\\SealServiceProvider"
             ]
         }
     },
