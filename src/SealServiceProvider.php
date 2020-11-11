@@ -15,8 +15,6 @@ class SealServiceProvider extends ServiceProvider
         $this->commands([
             Console\InstallCommand::class
         ]);
-
-        //Paginator::useBootstrap();
     }
 
     public function provides()

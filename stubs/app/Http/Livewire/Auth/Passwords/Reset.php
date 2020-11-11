@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth\Passwords;
 
+use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -58,7 +59,7 @@ class Reset extends Component
 
         if ($response == Password::PASSWORD_RESET) {
             //session()->flash(trans($response));
-            return redirect(route('home'));
+            return redirect(RouteServiceProvider::HOME);
         }
 
         $this->addError('email', trans($response));
