@@ -30,17 +30,13 @@ class InstallCommand extends Command
             }
         );
 
-        $fs = new Filesystem();
+        $filesystem = new Filesystem();
 
-        $fs->deleteDirectory(base_path('node_modules'));
-        $fs->delete(base_path('package-lock.json'));
-        $fs->deleteDirectory(resource_path('sass'));
+        $filesystem->deleteDirectory(resource_path('sass'));
+        $filesystem->deleteDirectory(base_path('node_modules'));
+        $filesystem->delete(base_path('package-lock.json'));
 
-        $fs->copyDirectory(__DIR__ . '/../../stubs', base_path());
-
-        static::updateFile(base_path('app/Http/Middleware/RedirectIfAuthenticated.php'), function ($file) {
-            return str_replace("RouteServiceProvider::HOME", "route('home')", $file);
-        });
+        $filesystem->copyDirectory(__DIR__ . '/../../stubs', base_path());
 
         $this->info('Auth scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your new assets.');
@@ -74,17 +70,5 @@ class InstallCommand extends Command
             base_path('package.json'),
             json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
         );
-    }
-
-    /**
-     * Update the contents of a file with the logic of a given callback.
-     * @param string $path
-     * @param callable $callback
-     */
-    protected static function updateFile(string $path, callable $callback)
-    {
-        $originalFileContents = file_get_contents($path);
-        $newFileContents = $callback($originalFileContents);
-        file_put_contents($path, $newFileContents);
     }
 }
