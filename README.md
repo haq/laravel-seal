@@ -1,9 +1,7 @@
-<p align="center">
-<img src="https://banners.beyondco.de/Laravel%20Seal.png?theme=dark&packageName=haq%2Fseal&pattern=ticTacToe&style=style_1&description=This+is+why+it%27s+awesome&md=1&showWatermark=0&fontSize=200px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" width="500">
-</p>
+###### This project has no relation with Laravel LLC or the Laravel Family. This is a third party module.
 
 # laravel seal
-Basic authentication scaffolding using Blade, [Bootstrap 5](https://v5.getbootstrap.com/) and [Livewire](https://laravel-livewire.com/).
+Basic authentication scaffolding using [Blade](https://laravel.com/docs/8.x/blade), [Bootstrap 5](https://v5.getbootstrap.com/) and [Livewire](https://laravel-livewire.com/).
 
 ## Screenshot
 ![login](https://i.imgur.com/APsKWlU.jpg)
