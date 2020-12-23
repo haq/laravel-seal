@@ -17,8 +17,8 @@ class InstallCommand extends Command
             function ($packages) {
                 return array_merge(
                     [
-                        'bootstrap' => '^5.0.0-alpha2',
-                        'popper.js' => '^1.16.1-lts',
+                        'bootstrap' => '^5.0.0-beta1',
+                        '@popperjs/core' => '^2.5.4',
                         'sass' => '^1.15.2',
                         'sass-loader' => '^8.0.0',
                     ],
