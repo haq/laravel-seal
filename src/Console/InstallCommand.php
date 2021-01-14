@@ -36,26 +36,28 @@ class InstallCommand extends Command
         $filesystem->deleteDirectory(base_path('node_modules'));
         $filesystem->delete(base_path('package-lock.json'));
 
+        $filesystem->copy(__DIR__ . '/../../webpack.mix.js', base_path() . '/webpack.mix.js');
         $filesystem->copyDirectory(__DIR__ . '/../../stubs', base_path());
 
         $this->info('Auth scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your new assets.');
+
+        return 0;
     }
 
     /**
      * Update the "package.json" file.
      *
      * @param callable $callable
-     * @param bool $dev
      * @return void
      */
-    protected static function updatePackages(callable $callable, $dev = true)
+    protected static function updatePackages(callable $callable)
     {
         if (!file_exists(base_path('package.json'))) {
             return;
         }
 
-        $configurationKey = $dev ? 'devDependencies' : 'dependencies';
+        $configurationKey = 'devDependencies';
 
         $packages = json_decode(file_get_contents(base_path('package.json')), true);
 
