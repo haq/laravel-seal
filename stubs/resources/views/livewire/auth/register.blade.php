@@ -20,9 +20,6 @@
                                        required
                                        autocomplete="name"
                                        autofocus>
-                                <p class="mb-0 small text-muted">
-                                    This cannot be changed.
-                                </p>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
