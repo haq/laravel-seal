@@ -11,10 +11,10 @@ use Livewire\Component;
 
 class Register extends Component
 {
-    public $name;
-    public $email;
-    public $password;
-    public $passwordConfirmation;
+    public string $name = '';
+    public string $email = '';
+    public string $password = '';
+    public string $passwordConfirmation = '';
 
     protected $rules = [
         'name' => [

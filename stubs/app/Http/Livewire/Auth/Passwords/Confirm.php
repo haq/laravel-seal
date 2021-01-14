@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Confirm extends Component
 {
-    public $password;
+    public string $password = '';
 
     protected $rules = [
         'password' => 'required|string|password',

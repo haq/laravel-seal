@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Auth\Passwords;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Contracts\Auth\PasswordBroker;
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -12,10 +14,10 @@ use Livewire\Component;
 
 class Reset extends Component
 {
-    public $token;
-    public $email;
-    public $password;
-    public $passwordConfirmation;
+    public string $token = '';
+    public string $email = '';
+    public string $password = '';
+    public string $passwordConfirmation = '';
 
     protected $rules = [
         'token' => 'required|string',
@@ -68,7 +70,7 @@ class Reset extends Component
     /**
      * Get the broker to be used during password reset.
      *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
+     * @return PasswordBroker
      */
     public function broker()
     {
@@ -78,7 +80,7 @@ class Reset extends Component
     /**
      * Get the guard to be used during password reset.
      *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     * @return StatefulGuard
      */
     protected function guard()
     {
