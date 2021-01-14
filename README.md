@@ -1,5 +1,3 @@
-###### This project has no relation with Laravel LLC or the Laravel Family. This is a third party module.
-
 # laravel seal
 Basic authentication scaffolding using [Blade](https://laravel.com/docs/8.x/blade), [Bootstrap 5](https://v5.getbootstrap.com/) and [Livewire](https://laravel-livewire.com/).
 

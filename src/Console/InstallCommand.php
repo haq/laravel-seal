@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 class InstallCommand extends Command
 {
     protected $signature = 'seal:install';
-    protected $description = 'Install the Breeze controllers and resources';
+    protected $description = 'Install laravel seal.';
 
     public function handle()
     {
@@ -19,12 +19,12 @@ class InstallCommand extends Command
                     [
                         'bootstrap' => '^5.0.0-beta1',
                         '@popperjs/core' => '^2.5.4',
-                        'sass' => '^1.15.2',
-                        'sass-loader' => '^8.0.0',
                     ],
                     Arr::except($packages, [
                         'lodash',
                         'axios',
+                        'sass',
+                        'sass-loader',
                     ])
                 );
             }
