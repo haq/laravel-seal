@@ -1,99 +1,64 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<x-auth-card>
 
-                <div class="card-body">
-                    <form wire:submit.prevent="register">
+    <x-slot name="logo">
+        <a href="/">
+            <x-application-logo width="82"/>
+        </a>
+    </x-slot>
 
-                        <div class="mb-3 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">
-                                {{ __('Name') }}
-                            </label>
+    <form wire:submit.prevent="register">
+        <div class="mb-3">
+            <x-label for="name" :value="__('Name')"/>
 
-                            <div class="col-md-6">
-                                <input id="name"
-                                       type="text"
-                                       class="form-control @error('name') is-invalid @enderror"
-                                       wire:model.defer="name"
-                                       required
-                                       autocomplete="name"
-                                       autofocus>
+            <x-input id="name"
+                     type="text"
+                     wire:model.lazy="name"
+                     autocomplete="name"
+                     required
+                     autofocus/>
 
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+            <x-input-error for="email"/>
+        </div>
 
-                        <div class="mb-3 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">
-                                {{ __('E-Mail Address') }}
-                            </label>
+        <div class="mb-3">
+            <x-label for="email" :value="__('Email')"/>
 
-                            <div class="col-md-6">
-                                <input id="email"
-                                       type="email"
-                                       class="form-control @error('email') is-invalid @enderror"
-                                       wire:model.defer="email"
-                                       required
-                                       autocomplete="email">
+            <x-input id="email"
+                     type="email"
+                     wire:model.lazy="email"
+                     autocomplete="email"
+                     required/>
 
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+            <x-input-error for="email"/>
+        </div>
 
-                        <div class="mb-3 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">
-                                {{ __('Password') }}
-                            </label>
+        <div class="mb-3">
+            <x-label for="password" :value="__('Password')"/>
 
-                            <div class="col-md-6">
-                                <input id="password"
-                                       type="password"
-                                       class="form-control @error('password') is-invalid @enderror"
-                                       wire:model.defer="password"
-                                       required>
+            <x-input id="password"
+                     type="password"
+                     wire:model.lazy="password"
+                     autocomplete="new-password"
+                     required/>
+        </div>
 
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+        <div class="mb-3">
+            <x-label for="password-confirm" :value="__('Confirm Password')"/>
 
-                        <div class="mb-3 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                {{ __('Confirm Password') }}
-                            </label>
+            <x-input id="password-confirm"
+                     type="password"
+                     wire:model.lazy="passwordConfirmation"
+                     autocomplete="new-password"
+                     required/>
+        </div>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm"
-                                       type="password"
-                                       class="form-control"
-                                       wire:model.defer="passwordConfirmation"
-                                       required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="mb-0">
+            <div class="d-flex justify-content-end">
+                <x-button>
+                    {{ __('Register') }}
+                </x-button>
             </div>
         </div>
-    </div>
-</div>
+    </form>
+
+</x-auth-card>
