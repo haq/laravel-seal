@@ -7,13 +7,11 @@
     @endif
 
     <x-slot name="subTitle">
-        <p class="mt-2 text-sm text-center">
-            Or
-            <a href="{{ route('logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                sign out
-            </a>
-        </p>
+        Or
+        <a href="{{ route('logout') }}"
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            sign out
+        </a>
     </x-slot>
 
     <p class="mb-3">

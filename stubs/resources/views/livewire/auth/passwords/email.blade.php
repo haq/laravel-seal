@@ -6,9 +6,16 @@
         </div>
     @endif
 
+    <x-slot name="subTitle">
+        Or
+        <a href="{{ route('login') }}" class="text-muted">
+            sign in to your account
+        </a>
+    </x-slot>
+
     <form wire:submit.prevent="sendResetPasswordLink">
 
-        <div class="mb-3">
+        <div class="mb-4">
             <x-label for="email" :value="__('Email')"/>
 
             <x-input id="email"
@@ -21,14 +28,11 @@
             <x-input-error for="email"/>
         </div>
 
-        <div class="mb-0">
-            <div class="d-flex justify-content-end">
-                <x-button>
-                    {{ __('Login') }}
-                </x-button>
-            </div>
+        <div class="mb-2">
+            <x-auth-button>
+                {{ __('Send password reset link') }}
+            </x-auth-button>
         </div>
     </form>
 
 </x-auth-card>
-

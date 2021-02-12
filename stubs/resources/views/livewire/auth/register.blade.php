@@ -1,12 +1,10 @@
 <x-auth-card title="Create a new account">
 
     <x-slot name="subTitle">
-        <p class="mt-2 text-sm text-center">
-            Or
-            <a href="{{ route('login') }}">
-                sign in to your account
-            </a>
-        </p>
+        Or
+        <a href="{{ route('login') }}" class="text-muted">
+            sign in to your account
+        </a>
     </x-slot>
 
     <form wire:submit.prevent="register">
@@ -45,7 +43,7 @@
                      required/>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
             <x-label for="password-confirm" :value="__('Confirm Password')"/>
 
             <x-input id="password-confirm"
@@ -55,12 +53,10 @@
                      required/>
         </div>
 
-        <div class="mb-0">
-            <div class="d-flex justify-content-end">
-                <x-button>
-                    {{ __('Register') }}
-                </x-button>
-            </div>
+        <div class="mb-2">
+            <x-auth-button>
+                {{ __('Register') }}
+            </x-auth-button>
         </div>
     </form>
 

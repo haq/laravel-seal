@@ -1,12 +1,10 @@
 <x-auth-card title="Sign in to your account">
 
     <x-slot name="subTitle">
-        <p class="mt-2 text-sm text-center">
-            Or
-            <a href="{{ route('register') }}">
-                create a new account
-            </a>
-        </p>
+        Or
+        <a href="{{ route('register') }}" class="text-muted">
+            create a new account
+        </a>
     </x-slot>
 
     <form wire:submit.prevent="login">
@@ -34,25 +32,27 @@
                      required/>
         </div>
 
-        <div class="mb-3">
-            <div class="form-check">
-                <x-label for="remember" :value="__('Remember Me')" class="form-check-label"/>
-                <x-checkbox id="remember" wire:model.lazy="remember"/>
+        <div class="row mb-3">
+            <div class="col-auto">
+                <div class="form-check">
+                    <x-label for="remember" :value="__('Remember Me')" class="form-check-label"/>
+                    <x-checkbox id="remember" wire:model.lazy="remember"/>
+                </div>
             </div>
-        </div>
 
-        <div class="mb-0">
-            <div class="d-flex justify-content-end align-items-baseline">
-                @if (Route::has('password.request'))
-                    <a class="text-muted me-3" href="{{ route('password.request') }}">
+            @if (Route::has('password.request'))
+                <div class="col-auto ms-auto align-items-baseline">
+                    <a class="text-muted" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                </div>
+            @endif
+        </div>
 
-                <x-button>
-                    {{ __('Login') }}
-                </x-button>
-            </div>
+        <div class="mb-2">
+            <x-auth-button>
+                {{ __('Login') }}
+            </x-auth-button>
         </div>
     </form>
 

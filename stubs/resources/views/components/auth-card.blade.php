@@ -18,9 +18,9 @@
             </h2>
 
             @if ($setTitleSet)
-                <div>
+                <p class="mt-2 text-center text-muted">
                     {{ $subTitle }}
-                </div>
+                </p>
             @endif
 
             <div class="card shadow-sm px-3">
