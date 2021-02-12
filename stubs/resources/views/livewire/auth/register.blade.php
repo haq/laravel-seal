@@ -1,9 +1,12 @@
-<x-auth-card>
+<x-auth-card title="Create a new account">
 
-    <x-slot name="logo">
-        <a href="/">
-            <x-application-logo width="82"/>
-        </a>
+    <x-slot name="subTitle">
+        <p class="mt-2 text-sm text-center">
+            Or
+            <a href="{{ route('login') }}">
+                sign in to your account
+            </a>
+        </p>
     </x-slot>
 
     <form wire:submit.prevent="register">

@@ -1,50 +1,34 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<x-auth-card title="Reset password">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
 
-                    <form wire:submit.prevent="sendResetPasswordLink">
+    <form wire:submit.prevent="sendResetPasswordLink">
 
-                        <div class="mb-3 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">
-                                {{ __('E-Mail Address') }}
-                            </label>
+        <div class="mb-3">
+            <x-label for="email" :value="__('Email')"/>
 
-                            <div class="col-md-6">
-                                <input id="email"
-                                       type="email"
-                                       class="form-control @error('email') is-invalid @enderror"
-                                       wire:model.defer="email"
-                                       required
-                                       autocomplete="email"
-                                       autofocus>
+            <x-input id="email"
+                     type="email"
+                     wire:model.lazy="email"
+                     autocomplete="email"
+                     required
+                     autofocus/>
 
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+            <x-input-error for="email"/>
+        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="mb-0">
+            <div class="d-flex justify-content-end">
+                <x-button>
+                    {{ __('Login') }}
+                </x-button>
             </div>
         </div>
-    </div>
-</div>
+    </form>
+
+</x-auth-card>
+
