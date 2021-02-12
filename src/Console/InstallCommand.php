@@ -17,14 +17,19 @@ class InstallCommand extends Command
             function ($packages) {
                 return array_merge(
                     [
-                        'bootstrap' => '^5.0.0-beta1',
-                        '@popperjs/core' => '^2.5.4',
+                        'bootstrap' => '^5.0.0-beta2',
+                        '@popperjs/core' => '^2.6.0',
+                        'laravel-mix' => '^6.0.11',
                     ],
                     Arr::except($packages, [
                         'lodash',
                         'axios',
                         'sass',
                         'sass-loader',
+                        'cross-env',
+                        'laravel-mix',
+                        'resolve-url-loader',
+                        'vue-template-compiler',
                     ])
                 );
             }
