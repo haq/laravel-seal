@@ -21,7 +21,7 @@
     @livewireStyles
 </head>
 <body>
-<div id="app">
+<div>
     <!-- top navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
