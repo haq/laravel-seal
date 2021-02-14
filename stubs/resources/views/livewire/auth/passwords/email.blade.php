@@ -1,50 +1,38 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<x-auth-card title="Reset password">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form wire:submit.prevent="sendResetPasswordLink">
-
-                        <div class="mb-3 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">
-                                {{ __('E-Mail Address') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="email"
-                                       type="email"
-                                       class="form-control @error('email') is-invalid @enderror"
-                                       wire:model.defer="email"
-                                       required
-                                       autocomplete="email"
-                                       autofocus>
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
         </div>
-    </div>
-</div>
+    @endif
+
+    <x-slot name="subTitle">
+        Or
+        <a href="{{ route('login') }}" class="text-muted">
+            sign in to your account
+        </a>
+    </x-slot>
+
+    <form wire:submit.prevent="sendResetPasswordLink">
+
+        <div class="mb-4">
+            <x-label for="email" :value="__('Email')"/>
+
+            <x-input id="email"
+                     type="email"
+                     wire:model.lazy="email"
+                     autocomplete="email"
+                     required
+                     autofocus/>
+
+            <x-input-error for="email"/>
+        </div>
+
+        <div class="mb-2">
+            <x-auth-button>
+                {{ __('Send password reset link') }}
+            </x-auth-button>
+        </div>
+    </form>
+
+</x-auth-card>

@@ -1,82 +1,46 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    {{ __('Reset Password') }}
-                </div>
+<x-auth-card title="Reset password">
 
-                <div class="card-body">
-                    <form wire:submit.prevent="resetPassword">
+    <form wire:submit.prevent="resetPassword">
+        <div class="mb-3">
+            <x-label for="email" :value="__('Email')"/>
 
-                        <div class="mb-3 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">
-                                {{ __('E-Mail Address') }}
-                            </label>
+            <x-input id="email"
+                     type="email"
+                     wire:model.lazy="email"
+                     autocomplete="email"
+                     autofocus
+                     required/>
 
-                            <div class="col-md-6">
-                                <input id="email"
-                                       type="email"
-                                       class="form-control @error('email') is-invalid @enderror"
-                                       wire:model.defer="email"
-                                       required
-                                       autocomplete="email"
-                                       autofocus>
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">
-                                {{ __('Password') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="password"
-                                       type="password"
-                                       class="form-control @error('password') is-invalid @enderror"
-                                       wire:model.defer="password"
-                                       required
-                                       autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                {{ __('Confirm Password') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm"
-                                       type="password"
-                                       class="form-control"
-                                       wire:model.defer="passwordConfirmation"
-                                       required
-                                       autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <x-input-error for="email"/>
         </div>
-    </div>
-</div>
+
+        <div class="mb-3">
+            <x-label for="password" :value="__('Password')"/>
+
+            <x-input id="password"
+                     type="password"
+                     wire:model.lazy="password"
+                     autocomplete="new-password"
+                     required/>
+
+            <x-input-error for="password"/>
+        </div>
+
+        <div class="mb-4">
+            <x-label for="password-confirm" :value="__('Confirm Password')"/>
+
+            <x-input id="password-confirm"
+                     type="password"
+                     wire:model.lazy="passwordConfirmation"
+                     autocomplete="new-password"
+                     required/>
+        </div>
+
+        <div class="mb-2">
+            <x-auth-button>
+                {{ __('Reset password') }}
+            </x-auth-button>
+        </div>
+    </form>
+
+</x-auth-card>
