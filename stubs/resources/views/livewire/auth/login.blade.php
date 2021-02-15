@@ -49,11 +49,9 @@
             @endif
         </div>
 
-        <div class="mb-2">
-            <x-auth-button>
-                {{ __('Login') }}
-            </x-auth-button>
-        </div>
+        <x-auth-button class="mb-2">
+            {{ __('Login') }}
+        </x-auth-button>
     </form>
 
 </x-auth-card>
