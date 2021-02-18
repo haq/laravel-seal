@@ -1,4 +1,8 @@
-<x-auth-card title="Confirm your password">
+<x-auth-card>
+
+    <x-slot name="title">
+        {{ __('Confirm your password') }}
+    </x-slot>
 
     <h6 class="mb-3 text-center">
         {{ __('Please confirm your password before continuing') }}

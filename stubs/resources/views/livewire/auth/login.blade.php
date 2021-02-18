@@ -1,4 +1,8 @@
-<x-auth-card title="Sign in to your account">
+<x-auth-card>
+
+    <x-slot name="title">
+        {{ __('Sign in to your account') }}
+    </x-slot>
 
     <x-slot name="subTitle">
         Or
@@ -49,11 +53,9 @@
             @endif
         </div>
 
-        <div class="mb-2">
-            <x-auth-button>
-                {{ __('Login') }}
-            </x-auth-button>
-        </div>
+        <x-auth-button class="mb-2">
+            {{ __('Login') }}
+        </x-auth-button>
     </form>
 
 </x-auth-card>

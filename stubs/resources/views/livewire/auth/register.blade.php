@@ -1,4 +1,8 @@
-<x-auth-card title="Create a new account">
+<x-auth-card>
+
+    <x-slot name="title">
+        {{ __('Create a new account') }}
+    </x-slot>
 
     <x-slot name="subTitle">
         Or

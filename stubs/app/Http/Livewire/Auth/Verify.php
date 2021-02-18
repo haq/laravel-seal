@@ -10,7 +10,7 @@ class Verify extends Component
 {
     public function render()
     {
-        return view('livewire.auth.verify')->extends('layouts.app');
+        return view('livewire.auth.verify')->layout('layouts.guest');
     }
 
     public function resend()

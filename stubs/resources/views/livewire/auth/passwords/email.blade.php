@@ -1,4 +1,8 @@
-<x-auth-card title="Reset password">
+<x-auth-card>
+
+    <x-slot name="title">
+        {{ __('Reset password') }}
+    </x-slot>
 
     @if (session('status'))
         <div class="alert alert-success" role="alert">

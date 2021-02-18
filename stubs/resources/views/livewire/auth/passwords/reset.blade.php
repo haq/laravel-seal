@@ -1,4 +1,8 @@
-<x-auth-card title="Reset password">
+<x-auth-card>
+
+    <x-slot name="title">
+        {{ __('Reset password') }}
+    </x-slot>
 
     <form wire:submit.prevent="resetPassword">
         <div class="mb-3">
