@@ -1,4 +1,8 @@
-<x-auth-card title="Sign in to your account">
+<x-auth-card>
+
+    <x-slot name="title">
+        {{ __('Sign in to your account') }}
+    </x-slot>
 
     <x-slot name="subTitle">
         Or
