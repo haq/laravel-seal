@@ -10,7 +10,7 @@ class Email extends Component
 {
     public string $email = '';
 
-    protected $rules = [
+    protected array $rules = [
         'email' => 'required|string|email',
     ];
 
