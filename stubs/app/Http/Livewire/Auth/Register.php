@@ -16,7 +16,7 @@ class Register extends Component
     public string $password = '';
     public string $passwordConfirmation = '';
 
-    protected $rules = [
+    protected array $rules = [
         'name' => [
             'required',
             'string',

@@ -17,9 +17,9 @@ class InstallCommand extends Command
             function ($packages) {
                 return array_merge(
                     [
-                        'bootstrap' => '^5.0.0-beta2',
-                        '@popperjs/core' => '^2.6.0',
-                        'laravel-mix' => '^6.0.11',
+                        'bootstrap' => '^5.0.0-beta3',
+                        '@popperjs/core' => '^2.9.1',
+                        'laravel-mix' => '^6.0.13',
                     ],
                     Arr::except($packages, [
                         'lodash',
@@ -44,6 +44,10 @@ class InstallCommand extends Command
         $filesystem->copy(__DIR__ . '/../../webpack.mix.js', base_path() . '/webpack.mix.js');
         $filesystem->copyDirectory(__DIR__ . '/../../stubs', base_path());
 
+        static::updateFile(base_path('app/Providers/RouteServiceProvider.php'), function ($file) {
+            return str_replace("public const HOME = '/home';", "public const HOME = '/';", $file);
+        });
+
         $this->info('Auth scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your new assets.');
 
@@ -56,7 +60,7 @@ class InstallCommand extends Command
      * @param callable $callable
      * @return void
      */
-    protected static function updatePackages(callable $callable)
+    private static function updatePackages(callable $callable)
     {
         if (!file_exists(base_path('package.json'))) {
             return;
@@ -77,5 +81,17 @@ class InstallCommand extends Command
             base_path('package.json'),
             json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
         );
+    }
+
+    /**
+     * Update the contents of a file with the logic of a given callback.
+     * @param string $path the path of the file to replace
+     * @param callable $callback
+     */
+    private static function updateFile(string $path, callable $callback)
+    {
+        $originalFileContents = file_get_contents($path);
+        $newFileContents = $callback($originalFileContents);
+        file_put_contents($path, $newFileContents);
     }
 }
